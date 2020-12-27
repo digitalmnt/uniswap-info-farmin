@@ -5,6 +5,7 @@ import { client } from './apollo/client'
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom'
 import GlobalPage from './pages/GlobalPage'
 import TokenPage from './pages/TokenPage'
+import FarmPage from './pages/FarmPage'
 import PairPage from './pages/PairPage'
 import { useGlobalData, useGlobalChartData } from './contexts/GlobalData'
 import { isAddress } from './utils'
@@ -138,6 +139,15 @@ function App() {
                     return <Redirect to="/home" />
                   }
                 }}
+              />
+              <Route
+                exacts
+                path="/farm"
+                render={({ match }) => (
+                  <LayoutWrapper savedOpen={savedOpen} setSavedOpen={setSavedOpen}>
+                    <FarmPage />
+                  </LayoutWrapper>
+                )}
               />
               <Route
                 exacts

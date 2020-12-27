@@ -7,7 +7,7 @@ import { useMedia } from 'react-use'
 import { transparentize } from 'polished'
 import { TYPE } from '../../Theme'
 import { withRouter } from 'react-router-dom'
-import { TrendingUp, List, PieChart, Disc } from 'react-feather'
+import { TrendingUp, List, PieChart, Disc, Share2 } from 'react-feather'
 import Link from '../Link'
 import { useSessionStart } from '../../contexts/Application'
 import { useDarkModeManager } from '../../contexts/LocalStorage'
@@ -132,6 +132,15 @@ function SideNav({ history }) {
                   >
                     <Disc size={20} style={{ marginRight: '.75rem' }} />
                     Tokens
+                  </Option>
+                </BasicLink>
+                <BasicLink to="/farm">
+                  <Option
+                    activeText={ history.location.pathname.split('/')[1] === 'farm' ??
+                      undefined }
+                  >
+                    <Share2 size={20} style={{ marginRight: '.75rem' }} />
+                    Farm
                   </Option>
                 </BasicLink>
                 <BasicLink to="/pairs">
