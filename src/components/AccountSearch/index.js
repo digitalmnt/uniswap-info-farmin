@@ -73,13 +73,17 @@ const DashGrid = styled.div`
   }
 `
 
-function AccountSearch({ history, small }) {
+function AccountSearch({ history, small, farm }) {
   const [accountValue, setAccountValue] = useState()
   const [savedAccounts, addAccount, removeAccount] = useSavedAccounts()
 
   function handleAccountSearch() {
     if (isAddress(accountValue)) {
-      history.push('/account/' + accountValue)
+      if (farm) {
+        history.push('/farm/' + accountValue)
+      } else {
+        history.push('/account/' + accountValue)
+      }
       if (!savedAccounts.includes(accountValue)) {
         addAccount(accountValue)
       }

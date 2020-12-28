@@ -713,9 +713,8 @@ export function useTopLps() {
   Fetches AAVE user positions, liquidity. and collateral
 */
 //  Todo pass wallet/account from meta mask
-export async function getAavePostions() {
-  const aavePosition = await getUserAavePositions()
-  console.log(aavePosition, 'aavePositionaavePosition')
+export async function getAavePostions(account) {
+  const aavePosition = await getUserAavePositions(account)
   return aavePosition
 }
 

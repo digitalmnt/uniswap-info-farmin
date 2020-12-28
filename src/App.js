@@ -142,12 +142,15 @@ function App() {
               />
               <Route
                 exacts
-                path="/farm"
-                render={({ match }) => (
-                  <LayoutWrapper savedOpen={savedOpen} setSavedOpen={setSavedOpen}>
-                    <FarmPage />
-                  </LayoutWrapper>
-                )}
+                path="/farm/:accountAddress?"
+                render={({ match }) => {
+                  const address = match.params.accountAddress ? match.params.accountAddress.toLowerCase() : null 
+                  return (
+                    <LayoutWrapper savedOpen={savedOpen} setSavedOpen={setSavedOpen}>
+                      <FarmPage account={address} />
+                    </LayoutWrapper>
+                  )
+                }}
               />
               <Route
                 exacts

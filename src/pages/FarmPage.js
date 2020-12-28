@@ -31,6 +31,13 @@ import { PlusCircle, Bookmark } from 'react-feather'
 import FormattedName from '../components/FormattedName'
 import { useListedTokens } from '../contexts/Application'
 import { getAavePostions } from '../contexts/GlobalData'
+import AccountSearch from '../components/AccountSearch'
+
+const AccountWrapper = styled.div`
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+`
 
 const DashboardWrapper = styled.div`
   width: 100%;
@@ -89,13 +96,14 @@ const WarningGrouping = styled.div`
   pointer-events: ${({ disabled }) => disabled && 'none'};
 `
 
-async function fetchAaveUser() {
-  const aave = await getAavePostions()
-  console.log(aave, 'aave')
+async function fetchAaveUser(account) {
+  const aave = await getAavePostions(account)
 }
 
-function FarmPage({ history }) {
-  fetchAaveUser()
+function FarmPage({ history, account }) {
+  if (account) {
+    fetchAaveUser(account)
+  }
   
   const address = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2';
   const {
@@ -185,6 +193,9 @@ function FarmPage({ history }) {
         setShow={markAsDismissed}
         address={address}
       />
+      <AccountWrapper>
+        <AccountSearch farm={true} />
+      </AccountWrapper>
       <ContentWrapper>
         <RowBetween style={{ flexWrap: 'wrap', alingItems: 'start' }}>
           <AutoRow align="flex-end" style={{ width: 'fit-content' }}>

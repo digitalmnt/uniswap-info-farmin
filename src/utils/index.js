@@ -484,9 +484,12 @@ export function isEquivalent(a, b) {
  */
 
 //  Todo pass wallet/account from meta mask
-export async function getUserAavePositions(walletId) {
+export async function getUserAavePositions(account) {
   let result = await aaveClientKovan.query({
     query: AAVE_USER_DATA,
+    variables: {
+      user: account,
+    },
   })
   return result
 }

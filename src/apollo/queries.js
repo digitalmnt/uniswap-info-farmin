@@ -238,13 +238,7 @@ export const USER_MINTS_BUNRS_PER_PAIR = gql`
   }
 `
 
-export const FIRST_SNAPSHOT = gql`
-  query snapshots($user: Bytes!) {
-    liquidityPositionSnapshots(first: 1, where: { user: $user }, orderBy: timestamp, orderDirection: asc) {
-      timestamp
-    }
-  }
-`
+
 
 export const USER_HISTORY = gql`
   query snapshots($user: Bytes!, $skip: Int!) {
@@ -871,21 +865,29 @@ export const FILTERED_TRANSACTIONS = gql`
     }
   }
 `
-
-export const AAVE_USER_DATA = gql`{
-	user(id: "0x196a5fd9f02f76ad53d45f28cff153d094b77f83") {
-    id
-    borrowedReservesCount
-    reserves {
-      id
-      pool {
-        id
-        protocol {
-          id
-        }
-      }
-      liquidityRate
+export const FIRST_SNAPSHOT = gql`
+  query snapshots($user: Bytes!) {
+    liquidityPositionSnapshots(first: 1, where: { user: $user }, orderBy: timestamp, orderDirection: asc) {
+      timestamp
     }
   }
-}`
+`
 
+export const AAVE_USER_DATA = gql`
+	query user($user: Bytes!) {
+    user(id: $user) {
+      id
+      borrowedReservesCount
+      reserves {
+        id
+        pool {
+          id
+          protocol {
+            id
+          }
+        }
+        liquidityRate
+      }
+    }
+  }
+`
