@@ -871,3 +871,21 @@ export const FILTERED_TRANSACTIONS = gql`
     }
   }
 `
+
+export const AAVE_USER_DATA = gql`{
+	user(id: "0x196a5fd9f02f76ad53d45f28cff153d094b77f83") {
+    id
+    borrowedReservesCount
+    reserves {
+      id
+      pool {
+        id
+        protocol {
+          id
+        }
+      }
+      liquidityRate
+    }
+  }
+}`
+

@@ -40,3 +40,10 @@ export const blockClient = new ApolloClient({
   }),
   cache: new InMemoryCache(),
 })
+
+export const aaveClientKovan = new ApolloClient({
+  link: new HttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/aave/protocol-v2-kovan',
+  }),
+  cache: new InMemoryCache(),
+})

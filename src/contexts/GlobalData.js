@@ -9,6 +9,7 @@ import {
   getBlocksFromTimestamps,
   get2DayPercentChange,
   getTimeframe,
+  getUserAavePositions,
 } from '../utils'
 import {
   GLOBAL_DATA,
@@ -706,3 +707,15 @@ export function useTopLps() {
 
   return topLps
 }
+
+
+/*
+  Fetches AAVE user positions, liquidity. and collateral
+*/
+//  Todo pass wallet/account from meta mask
+export async function getAavePostions() {
+  const aavePosition = await getUserAavePositions()
+  console.log(aavePosition, 'aavePositionaavePosition')
+  return aavePosition
+}
+

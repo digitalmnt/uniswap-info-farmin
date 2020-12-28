@@ -30,6 +30,7 @@ import { Hover, PageWrapper, ContentWrapper, StyledIcon } from '../components'
 import { PlusCircle, Bookmark } from 'react-feather'
 import FormattedName from '../components/FormattedName'
 import { useListedTokens } from '../contexts/Application'
+import { getAavePostions } from '../contexts/GlobalData'
 
 const DashboardWrapper = styled.div`
   width: 100%;
@@ -88,7 +89,14 @@ const WarningGrouping = styled.div`
   pointer-events: ${({ disabled }) => disabled && 'none'};
 `
 
+async function fetchAaveUser() {
+  const aave = await getAavePostions()
+  console.log(aave, 'aave')
+}
+
 function FarmPage({ history }) {
+  fetchAaveUser()
+  
   const address = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2';
   const {
     id,

@@ -3,8 +3,13 @@ import { BigNumber } from 'bignumber.js'
 import dayjs from 'dayjs'
 import { ethers } from 'ethers'
 import utc from 'dayjs/plugin/utc'
-import { client, blockClient } from '../apollo/client'
-import { GET_BLOCK, GET_BLOCKS, SHARE_VALUE } from '../apollo/queries'
+import { client, blockClient, aaveClientKovan } from '../apollo/client'
+import {
+  GET_BLOCK,
+  GET_BLOCKS,
+  SHARE_VALUE,
+  AAVE_USER_DATA,
+} from '../apollo/queries'
 import { Text } from 'rebass'
 import _Decimal from 'decimal.js-light'
 import toFormat from 'toformat'
@@ -471,4 +476,17 @@ export function isEquivalent(a, b) {
     }
   }
   return true
+}
+
+/**
+ * @notice Fetches AAVE user positions, liquidity. and collateral
+ * @param {Object} user
+ */
+
+//  Todo pass wallet/account from meta mask
+export async function getUserAavePositions(walletId) {
+  let result = await aaveClientKovan.query({
+    query: AAVE_USER_DATA,
+  })
+  return result
 }
