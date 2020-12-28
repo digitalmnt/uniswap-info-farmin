@@ -238,8 +238,6 @@ export const USER_MINTS_BUNRS_PER_PAIR = gql`
   }
 `
 
-
-
 export const USER_HISTORY = gql`
   query snapshots($user: Bytes!, $skip: Int!) {
     liquidityPositionSnapshots(first: 1000, skip: $skip, where: { user: $user }) {
@@ -874,7 +872,7 @@ export const FIRST_SNAPSHOT = gql`
 `
 
 export const AAVE_USER_DATA = gql`
-	query user($user: Bytes!) {
+  query user($user: Bytes!) {
     user(id: $user) {
       id
       borrowedReservesCount

@@ -135,10 +135,7 @@ function SideNav({ history }) {
                   </Option>
                 </BasicLink>
                 <BasicLink to="/farm">
-                  <Option
-                    activeText={ history.location.pathname.split('/')[1] === 'farm' ??
-                      undefined }
-                  >
+                  <Option activeText={history.location.pathname.split('/')[1] === 'farm' ?? undefined}>
                     <Share2 size={20} style={{ marginRight: '.75rem' }} />
                     Farm
                   </Option>

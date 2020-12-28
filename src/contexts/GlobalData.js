@@ -708,7 +708,6 @@ export function useTopLps() {
   return topLps
 }
 
-
 /*
   Fetches AAVE user positions, liquidity. and collateral
 */
@@ -717,4 +716,3 @@ export async function getAavePostions(account) {
   const aavePosition = await getUserAavePositions(account)
   return aavePosition
 }
-

@@ -4,12 +4,7 @@ import dayjs from 'dayjs'
 import { ethers } from 'ethers'
 import utc from 'dayjs/plugin/utc'
 import { client, blockClient, aaveClientKovan } from '../apollo/client'
-import {
-  GET_BLOCK,
-  GET_BLOCKS,
-  SHARE_VALUE,
-  AAVE_USER_DATA,
-} from '../apollo/queries'
+import { GET_BLOCK, GET_BLOCKS, SHARE_VALUE, AAVE_USER_DATA } from '../apollo/queries'
 import { Text } from 'rebass'
 import _Decimal from 'decimal.js-light'
 import toFormat from 'toformat'

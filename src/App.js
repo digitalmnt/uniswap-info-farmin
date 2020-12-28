@@ -144,7 +144,7 @@ function App() {
                 exacts
                 path="/farm/:accountAddress?"
                 render={({ match }) => {
-                  const address = match.params.accountAddress ? match.params.accountAddress.toLowerCase() : null 
+                  const address = match.params.accountAddress ? match.params.accountAddress.toLowerCase() : null
                   return (
                     <LayoutWrapper savedOpen={savedOpen} setSavedOpen={setSavedOpen}>
                       <FarmPage account={address} />
